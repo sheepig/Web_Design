@@ -4,7 +4,19 @@ function prepareSlideshow(){
 	if(!document.getElementsByTagName) return false;
 	//确保元素存在
 	if(!document.getElementById("linklist")) return false;
-	if(!document.getElementById("preview")) return false;
+	//插入slideshow图片
+	var slideshow = document.createElement("div");
+	slideshow.setAttribute("id","slideshow");
+	
+	var catImg = document.createElement("img");
+	catImg.setAttribute("src","images/cats.jpg");
+	catImg.setAttribute("alt","cat");
+	catImg.setAttribute("id","preview");
+	
+	slideshow.appendChild(catImg);
+	var list = document.getElementById("linklist");
+	insertAfter(slideshow,list);
+	
 	//为图片应用样式
 	var preview = document.getElementById("preview");
 	preview.style.position = "absolute";
